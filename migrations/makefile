@@ -15,7 +15,7 @@ up: ## testing infra
 .PHONY: up
 
 commit: ## build and push container to docker hub| provide tag=(...)
-	@docker build -t laurkan/otus-3:$(tag) . && docker push laurkan/otus-3:$(tag)
+	@docker build -t laurkan/otus-3-migrations:$(tag) . && docker push laurkan/otus-3-migrations:$(tag)
 .PHONY: commit
 
 gen-migrations-file: ##creates new migrations files

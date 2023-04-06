@@ -7,15 +7,6 @@ import (
 )
 
 type Config struct {
-	App struct {
-		Port        int
-		ServiceName string
-	}
-
-	Log struct {
-		Level string
-	}
-
 	DB struct {
 		User     string
 		Password string

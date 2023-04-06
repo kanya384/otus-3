@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: users-app-config
+data:
+  APP_PORT: "8080"
+  APP_SERVICE_NAME: "users"
+  LOG_LEVEL: "debug"
+  LOG_PATH: "./var/log/main.log"
+  DB_POOLMAX: "10"
+  DB_TIMEOUT: "1"

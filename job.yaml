@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "migration-job"
+  labels:
+  annotations:
+spec: 
+  backoffLimit: 0
+  template:
+    metadata:
+      name: "migration-job-pod"
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: db-migrations
+        image: laurkan/otus-3-migrations:v0.0.2
+        envFrom:
+          - configMapRef:
+              name: users-app-config
+          - secretRef:
+              name: postgres-secret 

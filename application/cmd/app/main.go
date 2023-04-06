@@ -12,7 +12,6 @@ import (
 	"time"
 
 	lg "gitlab.com/kanya384/gotools/logger"
-	"gitlab.com/kanya384/gotools/migrations"
 	"gitlab.com/kanya384/gotools/psql"
 )
 
@@ -27,26 +26,9 @@ func main() {
 	if err != nil {
 		panic(fmt.Sprintf("error initializing logger %s", err))
 	}
-	logFile, err := os.OpenFile(cfg.Log.Path, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0755)
-	if err != nil {
-		panic(fmt.Sprintf("error opening log file %s", err.Error()))
-	}
-	logger.SetOutput(logFile)
-
-	//db migrations
-	dsn := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable", cfg.PG.User, cfg.PG.Pass, cfg.PG.Host, cfg.PG.Port, cfg.PG.DbName)
-	migrate, err := migrations.NewMigrations(dsn, "file://migrations")
-	if err != nil {
-		logger.Fatalf("migrations error: %s", err.Error())
-	}
-
-	err = migrate.Up()
-	if err != nil {
-		logger.Fatalf("migrations error: %s", err.Error())
-	}
 
 	//db init
-	pg, err := psql.New(cfg.PG.Host, cfg.PG.Port, cfg.PG.DbName, cfg.PG.User, cfg.PG.Pass, psql.MaxPoolSize(cfg.PG.PoolMax), psql.ConnTimeout(time.Duration(cfg.PG.Timeout)*time.Second))
+	pg, err := psql.New(cfg.DB.Host, cfg.DB.Port, cfg.DB.Name, cfg.DB.User, cfg.DB.Password, psql.MaxPoolSize(cfg.DB.PoolMax), psql.ConnTimeout(time.Duration(cfg.DB.Timeout)*time.Second))
 	if err != nil {
 		logger.Fatal(fmt.Errorf("postgres connection error: %w", err))
 	}
