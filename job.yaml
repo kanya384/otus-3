@@ -5,7 +5,7 @@ metadata:
   labels:
   annotations:
 spec: 
-  backoffLimit: 0
+  backoffLimit: 6
   template:
     metadata:
       name: "migration-job-pod"
