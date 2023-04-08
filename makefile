@@ -1,5 +1,5 @@
 app: 
-	@cd app-chart && helm dependency build && helm install app app-chart -f values.yaml
+	@cd app-chart && helm dependency build && helm install app . -f values.yaml
 
 collection:
 	@newman run ./postman-collection/collection.json
