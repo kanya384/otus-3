@@ -1,0 +1,17 @@
+image:
+  registry: docker.io
+  repository: bitnami/postgresql
+  tag: 15.2.0-debian-11-r16
+  digest: ""
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+  debug: false
+auth:
+  enablePostgresUser: true
+  postgresPassword: "password"
+  username: "user"
+  password: "pass"
+  database: "users"
+architecture: standalone
+containerPorts:
+  postgresql: 5432

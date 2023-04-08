@@ -1,0 +1,10 @@
+deployment:
+  replicaCount: "1"
+  container:
+    image: laurkan/otus-3:v0.0.5
+
+database:
+  host: postgres-postgresql
+  user: user
+  pass: pass
+  name: users
