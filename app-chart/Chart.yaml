@@ -4,3 +4,8 @@ description: Otus third homework helm chart
 type: application
 version: 0.0.1
 appVersion: "1.0.0"
+
+dependencies:
+  - name: postgresql
+    version: 12.2.7
+    repository: https://charts.bitnami.com/bitnami

@@ -4,7 +4,26 @@ deployment:
     image: laurkan/otus-3:v0.0.5
 
 database:
-  host: postgres-postgresql
+  host: app-postgresql
   user: user
   pass: pass
   name: users
+
+postgresql:
+  image:
+    registry: docker.io
+    repository: bitnami/postgresql
+    tag: 15.2.0-debian-11-r16
+    digest: ""
+    pullPolicy: IfNotPresent
+    pullSecrets: []
+    debug: false
+  auth:
+    enablePostgresUser: true
+    postgresPassword: "password"
+    username: "user"
+    password: "pass"
+    database: "users"
+  architecture: standalone
+  containerPorts:
+    postgresql: 5432

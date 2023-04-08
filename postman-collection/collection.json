@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8b4578d6-c22c-4e20-b9a1-69cb6ff7d2b8",
+		"_postman_id": "2fa85da6-9957-4e93-a886-f4c8934f7dc4",
 		"name": "Otus - 3",
 		"description": "Otus 3 homework",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -23,7 +23,13 @@
 			],
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n  \"email\": \"test01@mail.ru\",\n  \"firstName\": \"laruakn\",\n  \"lastName\": \"kushu\",\n  \"phone\": \"79620000000\",\n  \"userName\": \"login\"\n}"
@@ -80,7 +86,13 @@
 			"name": "Обновление пользователя",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n  \"email\": \"test01@mail.ru\",\n  \"firstName\": \"test\",\n  \"id\": \"{{userId}}\",\n  \"lastName\": \"surnaname\",\n  \"phone\": \"79620000000\",\n  \"userName\": \"login\"\n}"
